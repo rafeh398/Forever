@@ -48,18 +48,26 @@ app.use("/api/v1/product", productRouter);
 app.use("/api/v1/cart",cartRouter);
 app.use("/api/v1/order",orderRouter)
 
+// Add this route to handle GET /
+app.get("/", (req, res) => {
+  res.send("API Working");
+});
+
+app.get("/", (req, res) => {
+  res.send("API WORKING");
+});
 
 
 connectDB()
-.then(()=>{
-   app.listen(port,()=>{
-      console.log(`server is running at port : ${port}`);
+// .then(()=>{
+//    app.listen(port,()=>{
+//       console.log(`server is running at port : ${port}`);
       
-   })
-})
-.catch((err)=>{
-console.log("Mongo db connection failed!",err);
+//    })
+// })
+// .catch((err)=>{
+// console.log("Mongo db connection failed!",err);
 
-})
+// })
 
 
